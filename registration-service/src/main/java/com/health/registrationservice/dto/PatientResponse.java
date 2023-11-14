@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.health.registrationservice.constant.Sex;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class PatientResponse {
 
@@ -83,4 +84,16 @@ public class PatientResponse {
         this.dateOfBirth = dateOfBirth;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PatientResponse that = (PatientResponse) o;
+        return Objects.equals(firstName, that.firstName) && Objects.equals(secondName, that.secondName) && Objects.equals(lastName, that.lastName) && sex == that.sex && Objects.equals(dateOfBirth, that.dateOfBirth);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, secondName, lastName, sex, dateOfBirth);
+    }
 }

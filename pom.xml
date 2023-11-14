@@ -19,6 +19,9 @@
     <modules>
         <module>hospital-service</module>
         <module>registration-service</module>
+        <module>api-gateway</module>
+        <module>eureka-server</module>
+        <module>notification-service</module>
     </modules>
 
     <properties>

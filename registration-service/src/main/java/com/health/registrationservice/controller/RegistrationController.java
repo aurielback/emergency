@@ -1,5 +1,6 @@
 package com.health.registrationservice.controller;
 
+import com.health.registrationservice.controller.fallback.FallbackHandler;
 import com.health.registrationservice.dto.PatientRequest;
 import com.health.registrationservice.dto.PatientResponse;
 import com.health.registrationservice.service.RegistrationService;
@@ -29,10 +30,6 @@ public class RegistrationController {
     @Retry(name = "hospital")
     public CompletableFuture<String> registerPatient(@RequestBody PatientRequest patientRequest) {
         return CompletableFuture.supplyAsync(() -> registrationService.registerClient(patientRequest));
-    }
-
-    public CompletableFuture<String> fallbackMethod(PatientRequest orderRequest, RuntimeException runtimeException) {
-        return CompletableFuture.supplyAsync(() -> "Somethink went wrong, try again later!");
     }
 
     @GetMapping
