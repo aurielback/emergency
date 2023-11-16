@@ -22,6 +22,7 @@
         <module>api-gateway</module>
         <module>eureka-server</module>
         <module>notification-service</module>
+        <module>security-service</module>
     </modules>
 
     <properties>
